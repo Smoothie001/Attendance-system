@@ -1,0 +1,31 @@
+<%-include("includes/head.ejs", { title: "Welcome to GeoAttendance" }) %>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/intro.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1>Welcome to GeoAttendance</h1>
+      <p>Your solution for seamless class attendance management.</p>
+    </div>
+  </header>
+
+  <section class="intro">
+    <div class="intro-container">
+      <h2>Get Started</h2>
+      <p>Choose your role to begin:</p>
+      <div class="role-selection">
+        <a href="/register-student" class="role-button">Register as Student</a>
+        <a href="/register-admin" class="role-button">Register as Admin</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 GeoAttendance. All rights reserved.</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/js/scripts.js"></script>
+
+<%-include("includes/end.ejs") %>

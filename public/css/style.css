@@ -1,0 +1,273 @@
+/* Basic reset and global styles */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background-color: #0056b3;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-container h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+.logout-button {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.logout-button:hover {
+  background-color: #e60000;
+}
+
+main {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.profile-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-container img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.profile-container h2 {
+  font-size: 2em;
+  margin: 0;
+}
+
+.courses-section,
+.attendance-section {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.courses-section h2,
+.attendance-section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.course-list {
+  list-style: none;
+  padding: 0;
+}
+
+.course-list li {
+  background-color: #007bff;
+  color: #fff;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.course-list li:hover {
+  background-color: #0056b3;
+}
+
+.attendance-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.attendance-form select,
+.attendance-form button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.attendance-form button {
+  background-color: #28a745;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.attendance-form button:hover {
+  background-color: #218838;
+}
+
+footer {
+  background-color: #0056b3;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*new css*/
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.header-container h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+.header-container p {
+  font-size: 1.2em;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+  width: 80%;
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.dashboard-container h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.dashboard-container button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+.dashboard-container button:hover {
+  background-color: #0056b3;
+}
+
+/* Course List */
+.course-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.course-list li {
+  background-color: #f9f9f9;
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.course-list li.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.course-list li.inactive {
+  background-color: #f4f4f4;
+}
+
+/* Forms */
+form {
+  margin-top: 20px;
+}
+
+form select,
+form input[type="text"],
+form input[type="file"] {
+  display: block;
+  width: calc(100% - 22px);
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* Attendance Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th,
+table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+table th {
+  background-color: #007bff;
+  color: #fff;
+}
+
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Footer */
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .dashboard-container {
+    width: 90%;
+  }
+}

@@ -1,0 +1,70 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.header-container h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+.header-container p {
+  font-size: 1.2em;
+}
+
+.intro {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.intro-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.intro h2 {
+  font-size: 2em;
+}
+
+.intro p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.role-selection {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.role-button {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #28a745;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 1.1em;
+}
+
+.role-button:hover {
+  background-color: #218838;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+}

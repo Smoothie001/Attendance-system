@@ -1,0 +1,49 @@
+<%-include("includes/head-stud.ejs", { title: "Student Dashboard" }) %>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1>Student Dashboard</h1>
+      <button id="logout-btn" class="logout-button">Logout</button>
+    </div>
+  </header>
+  <main>
+    <div class="profile-container">
+      <img src="https://www.pngarts.com/files/3/Avatar-PNG-Download-Image.png" id="student-photo" alt="Student Photo">
+      <h2 id="student-name"><%='Student Name' %></h2> <!-- Default text if studentName is not defined -->
+    </div>
+    <section class="courses-section">
+      <h2>Available Courses</h2>
+      <ul id="course-list" class="course-list">
+        <% if (courses && courses.length > 0) { %>
+          <% courses.forEach(course => { %>
+            <li><%= course.name %></li>
+          <% }) %>
+        <% } else { %>
+          <li>No courses available</li>
+        <% } %>
+      </ul>
+    </section>
+    <section class="attendance-section">
+      <h2>Mark Attendance</h2>
+      <form id="attendance-form" class="attendance-form" method="POST" action="/attendance">
+        <select id="course-select" name="course" required>
+          <option value="">Select a course</option>
+          <% if (courses && courses.length > 0) { %>
+            <% courses.forEach(course => { %>
+              <option value="<%= course._id %>"><%= course.name %></option>
+            <% }) %>
+          <% } %>
+        </select>
+        <button type="submit" class="submit-button">Mark Attendance</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 Student Attendance System</p>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/js/student-dashboard.js"></script>
+  <script src="/js/scripts.js"></script>
+<%- include("includes/end.ejs") %>

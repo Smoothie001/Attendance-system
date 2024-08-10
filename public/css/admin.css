@@ -1,0 +1,199 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.header-container h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+.header-container p {
+  font-size: 1.2em;
+}
+
+/* Form Container */
+.form-container {
+  width: 80%;
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.form-container h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+form input {
+  display: block;
+  width: calc(100% - 22px);
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+.footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  text-align: center;
+}
+
+/* Additional Styles for Admin Registration and Login */
+.registration-form img,
+.login-form img {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 150px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+
+.registration-form input[type="file"] {
+  margin-bottom: 20px;
+}
+
+/* Admin Dashboard */
+.dashboard-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.dashboard-container h2 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.dashboard-container .logout-btn {
+  display: block;
+  width: 100px;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dashboard-container .logout-btn:hover {
+  background-color: #c82333;
+}
+
+.dashboard-container h3 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.dashboard-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dashboard-container ul li {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.dashboard-container ul li.active {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.dashboard-container ul li.inactive {
+  background-color: #ccc;
+}
+
+.dashboard-container form {
+  margin-top: 20px;
+}
+
+.dashboard-container form select {
+  display: block;
+  width: calc(100% - 22px);
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.dashboard-container form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dashboard-container form button:hover {
+  background-color: #0056b3;
+}
+
+.dashboard-container .student-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dashboard-container .student-info img {
+  max-width: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.dashboard-container .student-info .student-details {
+  font-size: 1.2em;
+}
