@@ -5,6 +5,8 @@ const authController = require('../controllers/authController');
 // Register a new user
 router.post('/register', authController.register);
 
+router.post('/register-admin', authController.registerAdmin);
+
 // Login user
 router.get('/login', authController.login);
 

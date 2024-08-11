@@ -21,7 +21,7 @@ $(document).ready(function() {
             body: JSON.stringify(formJson)
         }).then(res => res.json()).then(dat => {
             alert('Registration successful');
-            window.location.href = "http://localhost:5000/login";
+            window.location.href = "/login";
             console.log(dat, "From reg....");
         });
     });
@@ -43,9 +43,9 @@ $(document).ready(function() {
                     console.log('Token:', response.token); // Corrected variable name
                     alert('Login successful');
                     if (response.role === 'admin') {
-                        window.location.href = 'http://localhost:5000/admin-dashboard';
+                        window.location.href = '/admin-dashboard';
                     } else if (response.role === 'student') {
-                        window.location.href = 'http://localhost:5000/student-dashboard';
+                        window.location.href = '/student-dashboard';
                     }
                 } else {
                     alert('Login failed: No token received');

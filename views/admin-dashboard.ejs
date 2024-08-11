@@ -22,9 +22,9 @@
       <tbody>
         <% attendanceRecords.forEach(function(record) { %>
           <tr>
-            <td><%= record.course %></td>
-            <td><%= record.student %></td>
-            <td><%= record.status %></td>
+            <td><%= record?.course %></td>
+            <td><%= record?.student %></td>
+            <td><%= record?.status %></td>
           </tr>
         <% }) %>
       </tbody>
