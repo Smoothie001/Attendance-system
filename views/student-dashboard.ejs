@@ -2,58 +2,58 @@
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <header>
+<header>
     <div class="header-container">
-      <h1>Student Dashboard</h1>
-      <button id="logout-btn" class="logout-button">Logout</button>
+        <h1>Student Dashboard</h1>
+        <button id="logout-btn" class="logout-button">Logout</button>
     </div>
-  </header>
-  <main>
+</header>
+<main>
     <% if (student) { %>
-      <div class="profile-container">
-        <!-- <img src="<%= student?.passport %>" id="student-photo" alt="Student Photo"> -->
-        <h2 id="student-name"><%= student.name %></h2>
-        <!-- Debug output to see if student is defined -->
-        <% if (typeof student !== 'undefined') { %>
-          <p>Student Name: <%= student?.name ?? 'User' %></p>
-          <p>Student Passport: <%= student?.passport %></p>
-        <% } else { %>
-          <p>Student data is not defined</p>
-        <% } %>
-      </div> 
+        <div class="profile-container">
+            <!-- <img src="<%= student?.passport %>" id="student-photo" alt="Student Photo"> -->
+            <h2 id="student-name"><%= student?.name %></h2>
+            <!-- Debug output to see if student is defined -->
+            <% if (typeof student !== 'undefined') { %>
+                <p>Student Name: <%= student?.name ?? 'User' %></p>
+                <p>Student Passport: <%= student?.passport %></p>
+            <% } else { %>
+                <p>Student data is not defined</p>
+            <% } %>
+        </div>
     <% } %>
- 
+
     <section class="courses-section">
-      <h2>Available Courses</h2>
-      <ul id="course-list" class="course-list">
-        <% if (courses && courses.length > 0) { %>
-          <% courses.forEach(course => { %>
-            <li><%= course.name %></li>
-          <% }) %>
-        <% } else { %>
-          <li>No courses available</li>
-        <% } %>
-      </ul>
+        <h2>Available Courses</h2>
+        <ul id="course-list" class="course-list">
+            <% if (courses && courses.length > 0) { %>
+                <% courses.forEach(course => { %>
+                    <li><%= course.name %></li>
+                <% }) %>
+            <% } else { %>
+                <li>No courses available</li>
+            <% } %>
+        </ul>
     </section>
     <section class="attendance-section">
-      <h2>Mark Attendance</h2>
-      <form id="attendance-form" class="attendance-form" method="POST" action="/attendance">
-        <select id="course-select" name="course" required>
-          <option value="">Select a course</option>
-          <% if (courses && courses.length > 0) { %>
-            <% courses.forEach(course => { %>
-              <option value="<%= course._id %>"><%= course.name %></option>
-            <% }) %>
-          <% } %>
-        </select>
-        <button type="submit" class="submit-button">Mark Attendance</button>
-      </form>
+        <h2>Mark Attendance</h2>
+        <form id="attendance-form" class="attendance-form" method="POST" action="/api/attendance/attendance">
+            <select id="course-select" name="course" required>
+                <option value="">Select a course</option>
+                <% if (courses && courses.length > 0) { %>
+                    <% courses.forEach(course => { %>
+                        <option value="<%= course._id %>"><%= course.name %></option>
+                    <% }) %>
+                <% } %>
+            </select>
+            <button type="submit" class="submit-button">Mark Attendance</button>
+        </form>
     </section>
-  </main>
-  <footer>
+</main>
+<footer>
     <p>&copy; 2024 Student Attendance System</p>
-  </footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="../public/js/student-dashboard.js"></script>
-  <script src="../public/js/scripts.js"></script>
-  <%- include("includes/end.ejs") %>
+</footer>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!--<script src="../public/js/student-dashboard.js"></script>-->
+<!--<script src="../public/js/scripts.js"></script>-->
+<%- include("includes/end.ejs") %>

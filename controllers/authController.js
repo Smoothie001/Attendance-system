@@ -2,6 +2,8 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const User = require('../models/userModel');
 const {validationResult} = require('express-validator');
+const Course = require("../Models/courseModel");
+const Attendance = require('../models/attendanceModel'); // Ensure this path is correct
 
 // Register a new user
 const register = async (req, res) => {
@@ -58,10 +60,10 @@ const login = async (req, res) => {
 
         const token = jwt.sign({userId: user._id}, process.env.JWT_SECRET, {expiresIn: '1h'});
 
-        res.cookie('token',token);
+        res.cookie('token', token);
 
         if (user.role === 'admin') {
-            res.redirect('/admin-dashboard');
+            res.redirect('/admin-dashboard')
         } else if (user.role === 'student') {
             res.redirect('/student-dashboard');
         }

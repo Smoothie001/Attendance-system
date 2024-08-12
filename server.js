@@ -18,6 +18,7 @@ const {body} = require('express-validator');
 const bparser = require("body-parser");
 const cookieParser = require('cookie-parser')
 const adminController = require('./controllers/adminController');
+const Course = require("./Models/courseModel");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -68,8 +69,10 @@ app.get('/register-student', (req, res) => {
 
 
 app.get('/admin-dashboard', authenticate, authorize(['admin']), async (req, res) => {
-    const attendanceRecords = await Attendance.find({});
-    res.render('admin-dashboard', {attendanceRecords});
+    res.render('admin-dashboard', {
+        courses: await Course.find({}),
+        attendanceRecords: await Attendance.find({})
+    });
 });
 
 app.post('/api/admin/add-course', authenticate, authorize(['admin']), adminController.addCourse);
@@ -78,14 +81,13 @@ app.get('/student-dashboard', authenticate, async (req, res, next) => {
     try {
         const student = await User.findById(req.user._id).populate({path: 'courses', strictPopulate: false});
 
-        console.log({student})
         if (!student) {
             throw createError(404, 'Student not found');
         }
 
         res.render('student-dashboard', {
-            studentName: student.name || 'Student Name',
-            courses: student?.courses || []
+            student: student || {},
+            courses: await Course.find({})
         });
     } catch (error) {
         console.log({error})

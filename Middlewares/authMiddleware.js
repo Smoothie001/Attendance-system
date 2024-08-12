@@ -6,7 +6,7 @@ const authenticate = async (req, res, next) => {
     const token = req.cookies.token;
     // console.log('Authorization header:', req.headers['authorization']); // Debugging
 
-    console.log('Authorization cookies:', req.cookies); // Debugging
+    // console.log('Authorization cookies:', req.cookies); // Debugging
 
     if (!token) {
         return res.status(401).json({message: 'No token provided'});

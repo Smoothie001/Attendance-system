@@ -2,41 +2,66 @@
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <div class="dashboard-container">
+<div class="dashboard-container">
     <h2>Admin Dashboard</h2>
-    <button id="logout-btn">Logout</button>
+    <button id="logout-btn" ONCLICK="location.href = '/login'">Logout</button>
     <h3>Manage Courses</h3>
-    <form id="add-course-form">
-      <input type="text" id="course-name" name="courseName" placeholder="Course Name" required>
-      <button type="submit">Add Course</button>
+    <form id="add-course-form" action="/api/admin/add-course" method="POST">
+        <input type="text" id="course-name" name="courseName" placeholder="Course Name" required>
+        <button type="submit">Add Course</button>
     </form>
+    <br>
+    <br>
+    <br>
     <h3>Student Attendance</h3>
     <table id="attendance-table">
-      <thead>
+        <thead>
         <tr>
-          <th>Course</th>
-          <th>Student</th>
-          <th>Status</th>
+            <th>Course</th>
+            <th>Student</th>
+            <th>Status</th>
         </tr>
-      </thead>
-      <tbody>
+        </thead>
+        <tbody>
         <% if (attendanceRecords && attendanceRecords.length > 0) { %>
-          <% attendanceRecords.forEach(function(record) { %>
-            <tr>
-              <td><%= record.course %></td>
-              <td><%= record.student %></td>
-              <td><%= record.status %></td>
-            </tr>
-          <% }) %>
+            <% attendanceRecords.forEach(function(record) { %>
+                <tr>
+                    <td><%= record.course %></td>
+                    <td><%= record.student %></td>
+                    <td><%= record.status %></td>
+                </tr>
+            <% }) %>
         <% } else { %>
-          <tr>
-            <td colspan="3">No attendance records available.</td>
-          </tr>
+            <tr>
+                <td colspan="3">No attendance records available.</td>
+            </tr>
         <% } %>
-      </tbody>
+        </tbody>
     </table>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="/js/admin-dashboard.js"></script>
-  <script src="/js/scripts.js"></script>
+
+    <h3>Courses</h3>
+    <table id="attendance-table">
+        <thead>
+        <tr>
+            <th>Course Title</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% if (!!courses && courses?.length > 0) { %>
+            <% courses.forEach(function(record) { %>
+                <tr>
+                    <td><%= record.name %></td>
+                </tr>
+            <% }) %>
+        <% } else { %>
+            <tr>
+                <td colspan="3">No attendance records available.</td>
+            </tr>
+        <% } %>
+        </tbody>
+    </table>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!--  <script src="/js/admin-dashboard.js"></script>-->
+<!--  <script src="/js/scripts.js"></script>-->
 <%- include("includes/end.ejs") %>
