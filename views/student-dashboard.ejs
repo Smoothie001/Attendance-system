@@ -1,4 +1,4 @@
-<%-include("includes/head-stud.ejs", { title: "Student Dashboard" }) %>
+<%- include("includes/head-stud.ejs", { title: "Student Dashboard" }) %>
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -9,10 +9,20 @@
     </div>
   </header>
   <main>
-    <div class="profile-container">
-      <img src="https://www.pngarts.com/files/3/Avatar-PNG-Download-Image.png" id="student-photo" alt="Student Photo">
-      <h2 id="student-name"><%='Student Name' %></h2> <!-- Default text if studentName is not defined -->
-    </div>
+    <% if (student) { %>
+      <div class="profile-container">
+        <!-- <img src="<%= student?.passport %>" id="student-photo" alt="Student Photo"> -->
+        <h2 id="student-name"><%= student.name %></h2>
+        <!-- Debug output to see if student is defined -->
+        <% if (typeof student !== 'undefined') { %>
+          <p>Student Name: <%= student?.name ?? 'User' %></p>
+          <p>Student Passport: <%= student?.passport %></p>
+        <% } else { %>
+          <p>Student data is not defined</p>
+        <% } %>
+      </div> 
+    <% } %>
+ 
     <section class="courses-section">
       <h2>Available Courses</h2>
       <ul id="course-list" class="course-list">
@@ -44,6 +54,6 @@
     <p>&copy; 2024 Student Attendance System</p>
   </footer>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="/js/student-dashboard.js"></script>
-<!--  <script src="/js/scripts.js"></script>-->
-<%- include("includes/end.ejs") %>
+  <script src="../public/js/student-dashboard.js"></script>
+  <script src="../public/js/scripts.js"></script>
+  <%- include("includes/end.ejs") %>

@@ -113,7 +113,7 @@ $(document).ready(function() {
         });
       }
   
-      loadCourses();
+      // loadCourses();
   
       // Handle attendance form submission
       $('#attendance-form').submit(function(event) {
@@ -194,6 +194,6 @@ $(document).ready(function() {
         });
       }
   
-      loadAttendance();
+      // loadAttendance();
     }
   });

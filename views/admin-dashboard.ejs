@@ -1,12 +1,12 @@
-<%-include("includes/head.ejs") %>
-  <link rel="stylesheet" href="/css/style.css">
+<%- include("includes/head.ejs") %>
+<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <div class="dashboard-container">
     <h2>Admin Dashboard</h2>
     <button id="logout-btn">Logout</button>
     <h3>Manage Courses</h3>
-    <form id="add-course-form" method="POST" action="/add-course">
+    <form id="add-course-form">
       <input type="text" id="course-name" name="courseName" placeholder="Course Name" required>
       <button type="submit">Add Course</button>
     </form>
@@ -20,17 +20,23 @@
         </tr>
       </thead>
       <tbody>
-        <% attendanceRecords.forEach(function(record) { %>
+        <% if (attendanceRecords && attendanceRecords.length > 0) { %>
+          <% attendanceRecords.forEach(function(record) { %>
+            <tr>
+              <td><%= record.course %></td>
+              <td><%= record.student %></td>
+              <td><%= record.status %></td>
+            </tr>
+          <% }) %>
+        <% } else { %>
           <tr>
-            <td><%= record?.course %></td>
-            <td><%= record?.student %></td>
-            <td><%= record?.status %></td>
+            <td colspan="3">No attendance records available.</td>
           </tr>
-        <% }) %>
+        <% } %>
       </tbody>
     </table>
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="/public/js/admin-dashboard.js"></script>
-  <script src="/public/js/scripts.js"></script>
+  <script src="/js/admin-dashboard.js"></script>
+  <script src="/js/scripts.js"></script>
 <%- include("includes/end.ejs") %>

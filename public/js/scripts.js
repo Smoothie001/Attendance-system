@@ -1,3 +1,8 @@
+let student = {
+    name: "fe",
+    password: 123456 
+}
+
 $(document).ready(function() {
     // Handle registration form submission (for both student and admin)
     $('#registration-form').submit(function(event) {
@@ -56,7 +61,7 @@ $(document).ready(function() {
                 alert('Login failed: ' + textStatus);
             }
         });
-    });
+    }); 
 
     // Handle logout button click
     $('#logout-btn').click(function() {
@@ -124,7 +129,7 @@ $(document).ready(function() {
             const courseName = $('#course-name').val();
 
             $.ajax({
-                url: '/api/add-course',
+                url: '/api/admin/add-course', // Corrected URL
                 method: 'POST',
                 contentType: 'application/json',
                 headers: {
@@ -140,12 +145,12 @@ $(document).ready(function() {
                     console.error('Failed to add course:', textStatus, errorThrown);
                     alert('Failed to add course: ' + textStatus);
                 }
-            });
+            });            
         });
     }
 
     // Load student data on dashboard
-    if ($('#student-name').length && $('#student-photo').length) {
+    // if ($('#student-name').length && $('#student-photo').length) {
         function loadStudentData() {
             $.ajax({
                 url: '/api/student',
@@ -162,7 +167,9 @@ $(document).ready(function() {
                     alert('Failed to load student data: ' + textStatus);
                 }
             });
-        }
+        // }
+
+        console.log("update......")
 
         loadStudentData();
     }
@@ -198,7 +205,7 @@ $(document).ready(function() {
             });
         }
 
-        loadAttendance();
+        // loadAttendance();
     }
 
     // Geolocation and attendance marking
