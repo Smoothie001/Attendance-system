@@ -1,3 +1,9 @@
+let student = {
+    name: "fe",
+    password: 123456 
+}
+
+
 $(document).ready(function() {
     async function loadCourses() {
         const token = localStorage.getItem('token');
@@ -7,28 +13,33 @@ $(document).ready(function() {
             return;
         }
 
+        // console.log({token})
+        // ejs.render("", student)
+
         try {
-            const response = await fetch('http://localhost:5000/api/courses', {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            });
+            // const response = await fetch('http://localhost:3000/api/courses', {
+            //     headers: {
+            //         'Authorization': `Bearer ${token}`
+            //     }
+            // });
 
-            if (response.ok) {
-                const result = await response.json();
-                const courseSelect = document.getElementById('course-select');
-                const courseList = document.getElementById('course-list');
+            // console.log({response});
 
-                courseSelect.innerHTML = '';
-                courseList.innerHTML = '';
+            // if (response.ok) {
+            //     const result = await response.json();
+            //     const courseSelect = document.getElementById('course-select');
+            //     const courseList = document.getElementById('course-list');
 
-                result.courses.forEach(course => {
-                    courseSelect.innerHTML += `<option value="${course._id}">${course.name}</option>`;
-                    courseList.innerHTML += `<li>${course.name}</li>`;
-                });
-            } else {
-                alert('Failed to load courses');
-            }
+            //     courseSelect.innerHTML = '';
+            //     courseList.innerHTML = '';
+
+            //     result.courses.forEach(course => {
+            //         courseSelect.innerHTML += `<option value="${course._id}">${course.name}</option>`;
+            //         courseList.innerHTML += `<li>${course.name}</li>`;
+            //     });
+            // } else {
+            //     alert('Failed to load courses');
+            // }
         } catch (error) {
             console.error('Error:', error);
             alert('Failed to load courses');
@@ -53,7 +64,7 @@ $(document).ready(function() {
         }
 
         try {
-            const response = await fetch('http://localhost:5000/api/attendance', {
+            const response = await fetch('http://localhost:3000/api/attendance', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -83,21 +94,23 @@ $(document).ready(function() {
             return;
         }
 
-        $.ajax({
-            url: 'http://localhost:5000/api/student',
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${token}`
-            },
-            success: function(response) {
-                $('#student-name').text(response.name);
-                $('#student-photo').attr('src', response.photo);
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.error('Failed to load student data:', textStatus, errorThrown);
-                alert('Failed to load student data: ' + textStatus);
-            }
-        });
+        console.log("TOKEN LOADER: ", token)
+
+        // $.ajax({
+        //     url: 'http://localhost:3000/api/student',
+        //     method: 'GET',
+        //     headers: {
+        //         'Authorization': `Bearer ${token}`
+        //     },
+        //     success: function(response) {
+        //         $('#student-name').text(response.name);
+        //         $('#student-photo').attr('src', response.photo);
+        //     },
+        //     error: function(jqXHR, textStatus, errorThrown) {
+        //         console.error('Failed to load student data:', textStatus, errorThrown);
+        //         alert('Failed to load student data: ' + textStatus);
+        //     }
+        // });
     }
 
     loadStudentData();

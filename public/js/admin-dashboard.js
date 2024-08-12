@@ -5,7 +5,7 @@ $(document).ready(function() {
         const courseName = $('#course-name').val();
 
         $.ajax({
-            url: '/api/add-course',
+            url: '/api/admin/add-course',
             method: 'POST',
             contentType: 'application/json',
             headers: {

@@ -5,7 +5,17 @@ const Attendance = require('../models/attendanceModel'); // Ensure this path is 
 const addCourse = async (req, res) => {
   try {
     const { courseName } = req.body;
-    const course = new Course({ name: courseName });
+
+    // Check if the user is authenticated
+    if (!req.user) {
+      return res.status(401).json({ message: 'User not authenticated' });
+    }
+
+    const course = new Course({
+      name: courseName,
+      createdBy: req.user._id  // Set the creator of the course
+    });
+
     await course.save();
     res.status(201).json({ message: 'Course added successfully', course });
   } catch (error) {
